@@ -13,23 +13,34 @@ var connection = mysql.createConnection({
   database: "bamazon"
 });
 
-
+// connection.connect(function(err){
+//   if(err) throw err;
+//   printTable();
+//   //  
+// });
 //Print overall table
 function printTable(){
 	connection.connect(function(err) {
-  		if (err) throw err;
+  		// if (err) throw err;
   		// console.log("connected as id " + connection.threadId);
   		connection.query("SELECT * FROM products", function(err, res) {
     	if (err) throw err;
          	console.table(res);
+          askQuestion();
   		});
   		// connection.end();
-		askQuestion();
+		
 	});
 
 };
-
 printTable();
+// function sequence() {
+//  askQuestion(function() {
+//   printTable();
+//  })
+// };
+
+// printTable();
 
 // askQuestion();
 
@@ -105,4 +116,4 @@ function askQuestion() {
       // printTable();
 };  
 
-// printTable();   
+
