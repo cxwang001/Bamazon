@@ -89,22 +89,29 @@ function askQuestion() {
                 console.log(current_quality);
                 var price = res[0].price;
                 var left_quality = current_quality - answer.user_quantity
-                // if (current_quality > answer.user_quantity) {
+                if (current_quality > answer.user_quantity) {
                  
                   
                   console.log("Ammount left: " + left_quality);
                   console.log("Cost of purchase = " +(answer.user_quantity * price));
-                  //then we update DB
+                  //then update DB
                   connection.query("UPDATE products SET stock_quantity=? WHERE item_id=?", 
-                    [
-                    left_quality, answer.item
-                    ], 
+                    [left_quality, answer.item], 
+
+
+
                     function(err, res) {
                     console.table(res);
                     
                   });
+
+                  connection.query("SELECT * FROM products", function (err, res) {
+                    console.table(res)
+                  });
               
-          // else
+          } else{
+            console.log("You don't have enought!!")
+          }
 
 // };
 
