@@ -16,5 +16,6 @@ However, if store _does_ have enough of the product, the app should fulfill the 
    * This means updating the SQL database to reflect the remaining quantity.
    * Once the update goes through, show the customer the total cost of their purchase.
 
-
+![image](https://user-images.githubusercontent.com/27830803/29238377-06226ae4-7ee9-11e7-9d0f-752002dc3c1d.png)
+![image](https://user-images.githubusercontent.com/27830803/29238385-1eb82062-7ee9-11e7-9159-819ea924905e.png)
 
